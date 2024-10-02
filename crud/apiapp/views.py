@@ -8,6 +8,13 @@ from rest_framework.authtoken.models import Token
 
 from .models import APIKey, Item
 from .serializers import UserSerializer, APIKeySerializer, ItemSerializer
+from django.shortcuts import render
+
+def index(request):
+    """
+    Renders the index.html template with links to the API endpoints.
+    """
+    return render(request, 'index.html')
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
